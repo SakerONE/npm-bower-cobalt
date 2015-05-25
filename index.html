@@ -16,36 +16,68 @@
 		.slide.title::after{
 			content: none;
 		}
+		.slide.less-fs h2{
+			font-size: 70px;
+		}
+		.slide.more-fs{
+			font-size: 170%;
+		}
 	</style>
 </head>
 <body class="list">
 	<header class="caption">
 		<h1>npm, bower. cobalt.</h1>
 	</header>
-	<article class="slide title" id="frontpage"><div>
-		<h2>npm, bower</h2>
-		<div class="flex-container">
-			<img src="images/npm.svg" height="350" width="350" alt="">
-			<img src="images/bower.png" height="350" width="350" alt="">
-		</div>
-	</div></article>
-	<article class="slide title" id="cobaltTitle"><div>
-		<h2>Cobalt</h2>
-		<div class="flex-container">
-			<img src="images/cobalt.png" height="300" width="300" alt="">
-		</div>
+	<article class="slide shout" id="frontpage"><div>
+		<h2>npm, bower. cobalt.</h2>
+		<p>Артем Свирский, 2015.</p>
+
 		<style>
-			#cobaltTitle .flex-container{
-				margin-top: 50px;
+			#frontpage p{
+				position: absolute;
+				right: 50px;
+				bottom: -20px;
 			}
 		</style>
 	</div></article>
+	<article class="slide shout" id="npmTitle"><div>
+		<img src="images/npm.svg" alt="">
+		<style>
+			#npmTitle div{
+				display: flex;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+			}
+			#npmTitle img{
+				margin: auto;
+			}
+		</style>
+	</div></article>
+	<article class="slide shout"><div>
+		<h2>npm - пакетный менеджер для JavaScript</h2>
+	</div></article>
+	<article class="slide shout"><div>
+		<h2>Что такое пакетный менеджер?</h2>
+	</div></article>
+	<article class="slide shout less-fs"><div>
+		<h2>*Показывает на примере jQuery*</h2>
+	</div></article>
+	<article class="slide less-fs shout"><div>
+		<h2>Пакет/package/module/component - готовое решение нашей задачи.</h2>
+	</div></article>
+	<article class="slide cover w h"><div>
+		<img src="images/our-project.jpg" height="768" width="1366" alt="">
+	</div></article>
+	<article class="slide shout less-fs"><div>
+		<h2>Модуль должен решать одну задачу и решать эту задачу хорошо.</h2>
+	</div></article>
+	<article class="slide cover w h"><div>
+		<img src="images/project.jpg" height="768" width="1366" alt="">
+		<a href="http://browsenpm.org/package.json" target="_blank" style="position: absolute; left: 580px; top: 250px;">подробнее</a>
+		<a href="https://docs.npmjs.com/files/package.json" target="_blank" style="position: absolute; left: 560px; top: 300px;">еще подробнее</a>
+	</div></article>
 
-	<!-- <p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p> -->
-	<!--
-		To hide progress bar from entire presentation
-		just remove “progress” element.
-		-->
 	<div class="progress"><div></div></div>
 	<script src="components/shower-core/shower.min.js"></script>
 	<!-- Copyright © 2013 Yours Truly, Famous Inc. -->
