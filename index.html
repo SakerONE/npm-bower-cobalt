@@ -22,6 +22,24 @@
 		.slide.more-fs{
 			font-size: 170%;
 		}
+		.slide.m-fs{
+			font-size: 150%;
+		}
+		.slide.l-fs{
+			font-size: 120%;
+		}
+		.slide .less-lh code{
+			line-height: 1;
+		}
+		.slide .m-lh code{
+			line-height: 1.5;
+		}
+		pre.no-num code:before{
+			content: none;
+		}
+		.slide.no-margin p{
+			margin: 0;
+		}
 	</style>
 </head>
 <body class="list">
@@ -82,6 +100,210 @@
 		<img src="images/project.jpg" height="768" width="1366" alt="">
 		<a href="http://browsenpm.org/package.json" target="_blank" style="position: absolute; left: 580px; top: 250px;">подробнее</a>
 		<a href="https://docs.npmjs.com/files/package.json" target="_blank" style="position: absolute; left: 560px; top: 300px;">еще подробнее</a>
+	</div></article>
+	<article class="slide cover w h" id="npmComponents"><div>
+		<img src="images/npm.jpg" height="768" width="1366" alt="">
+		<h2 class="site">сайт</h2>
+		<h2 class="registry">registry</h2>
+		<h2 class="client">клиент</h2>
+
+		<style>
+			#npmComponents h2{
+				position: absolute;
+			}
+			#npmComponents .site{
+				left: 158px;
+				top: 420px;
+			}
+			#npmComponents .registry{
+				left: 443px;
+				top: 520px;
+			}
+			#npmComponents .client{
+				left: 757px;
+				top: 420px;
+			}
+		</style>
+	</div></article>
+	<article class="slide more-fs"><div>
+		<h2>Установка</h2>
+		<ul>
+			<li>npm - <mark>node</mark> package manager</li>
+			<li>Идет в комплекте с NodeJS</li>
+		</ul>
+		<p>*Устанавливает NodeJS*</p>
+	</div></article>
+	<article class="slide more-fs"><div>
+		<h2>npm install</h2>
+		<code>npm install jquery</code>
+
+		<pre class="no-num">
+			<code>our-project</code>
+			<code>|_node_modules</code>
+			<code>	|_jquery</code>
+			<code>		|_src/</code>
+			<code>		|_package.json</code>
+			<code>		|_...</code>
+		</pre>
+	</div></article>
+	<article class="slide more-fs"><div>
+		<h2>Модули можно не коммитить</h2>
+
+		<ul>
+			<li>Добавить node_modules в <mark>.gitignore</mark></li>
+			<li>Создать <mark>package.json</mark></li>
+			<li>Добавить зависимости в package.json</li>
+			<li>Выполнить <code>npm install</code></li>
+		</ul>
+	</div></article>
+	<article class="slide no-margin"><div>
+		<h2>npm init</h2>
+
+		<p>Создаст package.json в текущей директории.</p>
+
+		<h3><mark>package.json</mark></h3>
+
+		<pre class="no-num less-lh">
+			<code>{</code>
+			<code>  "name": "our-project",</code>
+			<code>  "version": "1.0.0",</code>
+			<code>  "description": "",</code>
+			<code>  "main": "index.js",</code>
+			<code>  "author": "",</code>
+			<code>  "license": "ISC"</code>
+			<code>}</code>
+		</pre>
+	</div></article>
+	<article class="slide no-margin"><div>
+		<h2>npm install --save</h2>
+
+		<p>Добавит модуль в зависимости</p>
+
+		<code>npm install jquery --save</code>
+
+		<h3><mark>package.json</mark></h3>
+
+		<pre class="no-num less-lh">
+			<code>{</code>
+			<code>  "name": "our-project",</code>
+			<code>  "version": "1.0.0",</code>
+			<code>  "description": "",</code>
+			<code>  "main": "index.js",</code>
+			<code>  "author": "",</code>
+			<code>  "license": "ISC"</code>
+			<code>  "dependencies": {</code>
+			<code>    "jquery": "^2.1.4"</code>
+			<code>  }</code>
+			<code>}</code>
+		</pre>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>Зависимости</h2>
+
+		<p>Модули могут зависеть от других модулей.</p>
+	</div></article>
+	<article class="slide shout"><div>
+		<h2>SEMVER</h2>
+	</div></article>
+	<article class="slide"><div>
+		<h2>Вспомним package.json</h2>
+		<pre class="no-num m-lh">
+			<code>{</code>
+			<code>  "name": "our-project",</code>
+			<code>  "version": "1.0.0",</code>
+			<code>  "dependencies": {</code>
+			<code>    "jquery": "<mark>^2.1.4</mark>"</code>
+			<code>    "lodash": "<mark>~3.9.3</mark>"</code>
+			<code>    "rivets": "<mark>>=0.8.1</mark>"</code>
+			<code>  }</code>
+			<code>}</code>
+		</pre>
+	</div></article>
+	<article class="slide shout"><div>
+		<h2>2.1.4</h2>
+	</div></article>
+	<article class="slide shout"><div>
+		<h2>major.minor.patch</h2>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>patch</h2>
+		<p>Фикс бага с обратной совместимостью.</p>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>minor</h2>
+		<p>Добавление новой функциональности с обратной совместимостью.</p>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>major</h2>
+		<p>Изменение без обратной совместимости.</p>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>Модуль "some" v1.0.0</h2>
+		<pre class="no-num m-lh">
+			<code>function <mark>add</mark>(a, b){</code>
+			<code>	a + b;</code>
+			<code>}</code>
+		</pre>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>Модуль "some" v1.0.1</h2>
+		<pre class="no-num m-lh">
+			<code>function <mark>add</mark>(a, b){</code>
+			<code>	<mark>return</mark> a + b;</code>
+			<code>}</code>
+		</pre>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>Модуль "some" v1.1.0</h2>
+		<pre class="no-num m-lh">
+			<code>function <mark>add</mark>(a, b){</code>
+			<code>	<mark>return</mark> a + b;</code>
+			<code>}</code>
+			<code> </code>
+			<code>function <mark>sub</mark>(a, b){</code>
+			<code>	<mark>return</mark> a - b;</code>
+			<code>}</code>
+		</pre>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>Модуль "some" v2.0.0</h2>
+		<pre class="no-num m-lh">
+			<code>function <mark>sub</mark>(a, b){</code>
+			<code>	<mark>return</mark> a - b;</code>
+			<code>}</code>
+		</pre>
+	</div></article>
+	<article class="slide"><div>
+		<h2>Вспомним package.json</h2>
+		<pre class="no-num m-lh">
+			<code>{</code>
+			<code>  "name": "our-project",</code>
+			<code>  "version": "1.0.0",</code>
+			<code>  "dependencies": {</code>
+			<code>    "jquery": "<mark>^2.1.4</mark>"</code>
+			<code>    "lodash": "<mark>~3.9.3</mark>"</code>
+			<code>    "rivets": "<mark>>=0.8.1</mark>"</code>
+			<code>  }</code>
+			<code>}</code>
+		</pre>
+	</div></article>
+	<article class="slide shout"><div>
+		<h2>Ranges</h2>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>Ranges</h2>
+		<p>Range - диапазон</p>
+		<ul>
+			<li><code>~</code> - последний патч</li>
+			<li><code>^</code> - последний минор</li>
+		</ul>
+		<a href="http://semver.npmjs.com/" target="_blank">semver calculator</a>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>npm install -g</h2>
+
+		<p>Устанавливает модули глобально.</p>
+		<p>Это не значит, что в проекты можно подключать глобальные модули.</p>
 	</div></article>
 
 	<div class="progress"><div></div></div>
