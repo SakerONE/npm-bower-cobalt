@@ -28,6 +28,9 @@
 		.slide.l-fs{
 			font-size: 120%;
 		}
+		.slide.min-fs{
+			font-size: 115%;
+		}
 		.slide .less-lh code{
 			line-height: 1;
 		}
@@ -44,10 +47,10 @@
 </head>
 <body class="list">
 	<header class="caption">
-		<h1>npm, bower. cobalt.</h1>
+		<h1>npm, Bower. Cobalt.</h1>
 	</header>
 	<article class="slide shout" id="frontpage"><div>
-		<h2>npm, bower. cobalt.</h2>
+		<h2>npm, Bower. Cobalt.</h2>
 		<p>Артем Свирский, 2015.</p>
 
 		<style>
@@ -137,7 +140,7 @@
 		<h2>npm install</h2>
 		<code>npm install jquery</code>
 
-		<pre class="no-num">
+		<pre class="no-num less-lh">
 			<code>our-project</code>
 			<code>|_node_modules</code>
 			<code>	|_jquery</code>
@@ -196,11 +199,6 @@
 			<code>  }</code>
 			<code>}</code>
 		</pre>
-	</div></article>
-	<article class="slide m-fs"><div>
-		<h2>Зависимости</h2>
-
-		<p>Модули могут зависеть от других модулей.</p>
 	</div></article>
 	<article class="slide shout"><div>
 		<h2>SEMVER</h2>
@@ -300,11 +298,188 @@
 		<a href="http://semver.npmjs.com/" target="_blank">semver calculator</a>
 	</div></article>
 	<article class="slide m-fs"><div>
+		<h2>Зависимости</h2>
+
+		<p>Модули могут зависеть от других модулей.</p>
+	</div></article>
+	<article class="slide m-fs"><div>
 		<h2>npm install -g</h2>
 
 		<p>Устанавливает модули глобально.</p>
 		<p>Это не значит, что в проекты можно подключать глобальные модули.</p>
 	</div></article>
+	<article class="slide" id="bowerFrontpage"><div>
+		<h2>Bower</h2>
+		<img src="images/bower-logo.png">
+		<style>
+			#bowerFrontpage h2{
+				position: absolute;
+				bottom: 180px;
+				right: 42px;
+				font-size: 170px;
+				color: #de4420;
+			}
+			#bowerFrontpage img{
+				position: absolute;
+				left: 50px;
+				top: 100px;
+				width: 50%;
+			}
+			#bowerFrontpage:after{
+				opacity: 0;
+			}
+		</style>
+	</div></article>
+	<article class="slide"><div>
+		<h2>Установка</h2>
+		<p>
+			<code>npm install -g bower</code>
+		</p>
+	</div></article>
+	<article class="slide min-fs"><div>
+		<h2>"Что такое bower?"</h2>
+		<blockquote>
+			- Что такое bower?<br>
+			- Это пакетный менеджер. Устанавливается с помощью npm.<br>
+			- Что такое npm?<br>
+			- Это пакетный менеджер.<br>
+		</blockquote>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>Главное отличие от npm</h2>
+		<p>bower - плоская структура зависимостей</p>
+		<p>npm - древовидная</p>
+	</div></article>
+	<article class="slide" id="npmDistinctions"><div>
+		<h2>Главное отличие от npm</h2>
+
+		<p class="example">A > C</p>
+		<p class="example">B > C</p>
+
+		<div class="column-wrapper">
+			<div class="column">
+				<p><code>npm install</code></p>
+				<pre class="no-num m-lh">
+					<code>node_modules</code>
+					<code>|_A</code>
+					<code>| |_C</code>
+					<code>|_B</code>
+					<code>  |_C</code>
+				</pre>
+			</div>
+			<div class="column">
+				<p><code>bower install</code></p>
+				<pre class="no-num m-lh">
+					<code>bower_components</code>
+					<code>|_A</code>
+					<code>|_B</code>
+					<code>|_C</code>
+				</pre>
+			</div>
+		</div>
+
+		<style>
+			#npmDistinctions .example{
+				margin-left: 265px;
+			}
+			#npmDistinctions p{
+				margin-bottom: 5px;
+			}
+			#npmDistinctions .column-wrapper{
+				display: -webkit-box;
+				/*-webkit-box-pack: center;*/
+			}
+			#npmDistinctions .column{
+				/*margin: 0 100px;*/
+				width: 50%;
+			}
+		</style>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>Поэтому</h2>
+		<p>bower - для клиента</p>
+		<p>npm - для сервера</p>
+
+		<a href="http://browserify.org/" target="_blank">но не всегда</a>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>bower install</h2>
+		<code>bower install jquery</code>
+
+		<pre class="no-num m-lh">
+			<code>our-project</code>
+			<code>|_<mark>bower_components</mark></code>
+			<code>	|_jquery</code>
+			<code>		|_src/</code>
+			<code>		|_package.json</code>
+			<code>		|_...</code>
+		</pre>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>.bowerrc</h2>
+		<p>Файл с настройками bower</p>
+		<pre class="no-num">
+			<code>{</code>
+			<code>	"directory": "components"</code>
+			<code>}</code>
+		</pre>
+	</div></article>
+	<article class="slide" id="noCommit"><div>
+		<h2>Компоненты тоже можно не коммитить</h2>
+		<p><mark>bower.json</mark></p>
+		<pre class="no-num">
+			<code>"dependencies": {</code>
+			<code>  "name": "version",</code>
+			<code>  "name": "version"</code>
+			<code>}</code>
+		</pre>
+		<p><code>bower install</code></p>
+	</div></article>
+	<article class="slide m-fs"><div>
+		<h2>Тот же init</h2>
+		<p>
+			<code>$ bower init</code>
+		</p>
+		<p>Cоздает bower.json</p>
+	</div></article>
+	<article class="slide"><div>
+		<h2>Тот же --save</h2>
+		<pre>
+			<code>$ bower install <mark>--save</mark> jquery normalize-css ...</code>
+		</pre>
+		bower.json
+		<pre class="no-num">
+			<code>"dependencies": {</code>
+			<code>  "jquery": "~2.1.1",</code>
+			<code>  "normalize-css": "~3.0.2"</code>
+			<code>}</code>
+		</pre>
+	</div></article>
+	<article class="slide"><div>
+		<h2>bower install endpoints</h2>
+		<p><code>bower install jquery</code></p>
+		<p><code>bower install git@github.com:user/package.git</code></p>
+		<p><code>bower install user/package</code></p>
+	</div></article>
+	<article class="slide" id="resolver"><div>
+		<h2>.bowerrc</h2>
+		<pre class="no-num">
+			<code>{</code>
+			<code>	"shorthand-resolver":
+		"git@git.qapint.com:{{owner}}/{{package}}.git"</code>
+			<code>}</code>
+		</pre>
+		<p><code>bower install cobalt/slider</code></p>
+		<p><code>git@git.qapint.com:cobalt/slider.git</code></p>
+		<style>
+			#resolver p{
+				margin-bottom: 10px;
+			}
+		</style>
+	</div></article>
+
+
+
 
 	<div class="progress"><div></div></div>
 	<script src="components/shower-core/shower.min.js"></script>
